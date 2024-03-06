@@ -1,3 +1,4 @@
+import 'package:d_day/resources/fonts.dart';
 import 'package:d_day/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -5,11 +6,11 @@ void main() {
   runApp(
     MaterialApp(
       theme: ThemeData(
-        fontFamily: "sunflower", // 기본값으로 설정함
+        fontFamily: FontFamily.SUNFLOWER, // 기본값으로 설정함
         textTheme: const TextTheme(
           displayLarge: TextStyle(
             color: Colors.white,
-            fontFamily: "parisienne",
+            fontFamily: FontFamily.PARISIENNE,
             fontSize: 80.0,
           ),
           displayMedium: TextStyle(
@@ -28,7 +29,7 @@ void main() {
           ),
         ),
       ),
-      home: const HomeScreen(),
+      home: HomeScreen(),
     ),
   );
 }

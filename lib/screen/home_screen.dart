@@ -1,18 +1,23 @@
+import 'package:d_day/resources/resources.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../resources/strings.dart';
+
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  final DateTime now = DateTime.now();
+
+  HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  DateTime selectedDate = DateTime(
-    DateTime.now().year,
-    DateTime.now().month,
-    DateTime.now().day,
+  late DateTime selectedDate = DateTime(
+    widget.now.year,
+    widget.now.month,
+    widget.now.day,
   );
 
   @override
@@ -26,11 +31,12 @@ class _HomeScreenState extends State<HomeScreen> {
           width: double.infinity,
           child: Column(
             children: [
-              _TopPart(
+              _Days(
+                now: widget.now,
                 selectedDate: selectedDate,
                 onHeartPressed: onHeartPressed,
               ),
-              const _BottomPart(),
+              _CoupleImage(),
             ],
           ),
         ),
@@ -39,8 +45,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void onHeartPressed() {
-    final DateTime now = DateTime.now();
-
     // dialog
     showCupertinoDialog(
       context: context,
@@ -53,11 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: CupertinoDatePicker(
               mode: CupertinoDatePickerMode.date,
               initialDateTime: selectedDate,
-              maximumDate: DateTime(
-                now.year,
-                now.month,
-                now.day,
-              ),
+              maximumDate: widget.now,
               onDateTimeChanged: (DateTime date) {
                 setState(() {
                   selectedDate = date;
@@ -72,11 +72,13 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-class _TopPart extends StatelessWidget {
+class _Days extends StatelessWidget {
+  final DateTime now;
   final DateTime selectedDate;
   final VoidCallback onHeartPressed;
 
-  const _TopPart({
+  const _Days({
+    required this.now,
     required this.selectedDate,
     required this.onHeartPressed,
   });
@@ -85,19 +87,21 @@ class _TopPart extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    final DateTime now = DateTime.now();
 
     return Expanded(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
-            "U&I",
+            Strings.TITLE_U_AND_I,
             style: textTheme.displayLarge,
           ),
           Column(
             children: [
-              Text("우리 처음 만난 날", style: textTheme.bodyLarge),
+              Text(
+                Strings.TITLE_FIRST_MEET_DAY,
+                style: textTheme.bodyLarge,
+              ),
               Text(
                 "${selectedDate.year}.${selectedDate.month}.${selectedDate.day}",
                 style: textTheme.bodyMedium,
@@ -113,11 +117,7 @@ class _TopPart extends StatelessWidget {
             ),
           ),
           Text(
-            "D+${DateTime(
-                  now.year,
-                  now.month,
-                  now.day,
-                ).difference(selectedDate).inDays + 1}",
+            "${Strings.TITLE_D_DAY}${now.difference(selectedDate).inDays + 1}",
             style: textTheme.displayMedium,
           ),
         ],
@@ -126,13 +126,13 @@ class _TopPart extends StatelessWidget {
   }
 }
 
-class _BottomPart extends StatelessWidget {
-  const _BottomPart();
+class _CoupleImage extends StatelessWidget {
+  const _CoupleImage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Image.asset("asset/images/middle_image.png"),
+      child: Image.asset("middle_image".png()),
     );
   }
 }
