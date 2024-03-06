@@ -62,6 +62,8 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+  assets:
+    - asset/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -88,3 +90,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: parisienne
+      fonts:
+        - asset: asset/fonts/Parisienne-Regular.ttf
+
+    - family: sunflower
+      fonts:
+        - asset: asset/fonts/Sunflower-Light.ttf
+          weight: 300
+        - asset: asset/fonts/Sunflower-Medium.ttf
+          weight: 500
+        - asset: asset/fonts/Sunflower-Bold.ttf
+          weight: 700
