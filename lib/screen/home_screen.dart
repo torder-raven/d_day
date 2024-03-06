@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         top: true,
         bottom: false,
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           child: Column(
             children: [
@@ -30,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 selectedDate: selectedDate,
                 onHeartPressed: onHeartPressed,
               ),
-              _BottomPart(),
+              const _BottomPart(),
             ],
           ),
         ),
@@ -76,10 +76,9 @@ class _TopPart extends StatelessWidget {
   final DateTime selectedDate;
   final VoidCallback onHeartPressed;
 
-  _TopPart({
+  const _TopPart({
     required this.selectedDate,
     required this.onHeartPressed,
-    super.key,
   });
 
   @override
@@ -94,21 +93,21 @@ class _TopPart extends StatelessWidget {
         children: [
           Text(
             "U&I",
-            style: textTheme.headline1,
+            style: textTheme.displayLarge,
           ),
           Column(
             children: [
-              Text("우리 처음 만난 날", style: textTheme.bodyText1),
+              Text("우리 처음 만난 날", style: textTheme.bodyLarge),
               Text(
                 "${selectedDate.year}.${selectedDate.month}.${selectedDate.day}",
-                style: textTheme.bodyText2,
+                style: textTheme.bodyMedium,
               ),
             ],
           ),
           IconButton(
             onPressed: onHeartPressed,
             iconSize: 60.0,
-            icon: Icon(
+            icon: const Icon(
               Icons.favorite,
               color: Colors.red,
             ),
@@ -119,7 +118,7 @@ class _TopPart extends StatelessWidget {
                   now.month,
                   now.day,
                 ).difference(selectedDate).inDays + 1}",
-            style: textTheme.headline2,
+            style: textTheme.displayMedium,
           ),
         ],
       ),
@@ -128,7 +127,7 @@ class _TopPart extends StatelessWidget {
 }
 
 class _BottomPart extends StatelessWidget {
-  const _BottomPart({super.key});
+  const _BottomPart();
 
   @override
   Widget build(BuildContext context) {

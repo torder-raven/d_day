@@ -6,29 +6,29 @@ void main() {
     MaterialApp(
       theme: ThemeData(
         fontFamily: "sunflower", // 기본값으로 설정함
-        textTheme: TextTheme(
-          headline1: TextStyle(
+        textTheme: const TextTheme(
+          displayLarge: TextStyle(
             color: Colors.white,
             fontFamily: "parisienne",
             fontSize: 80.0,
           ),
-          headline2: TextStyle(
+          displayMedium: TextStyle(
             color: Colors.white,
             fontSize: 50.0,
             fontWeight: FontWeight.w700,
           ),
-          bodyText1:TextStyle(
+          bodyLarge:TextStyle(
             color: Colors.white,
             fontSize: 30.0,
           ),
-          bodyText2: TextStyle(
+          bodyMedium: TextStyle(
             color: Colors.white,
             fontSize: 20.0,
             fontWeight: FontWeight.w700,
           ),
         ),
       ),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     ),
   );
 }
