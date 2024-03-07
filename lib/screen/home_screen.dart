@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../constant/constants.dart';
+import '../constant/strings.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -65,7 +68,7 @@ class _DDay extends StatelessWidget {
   final DateTime firstDay;
   final GestureTapCallback onWorkPressed;
 
-  _DDay({required this.firstDay, required this.onWorkPressed});
+  const _DDay({required this.firstDay, required this.onWorkPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +81,7 @@ class _DDay extends StatelessWidget {
           height: 16.0,
         ),
         Text(
-          "Work",
+          TITLE,
           style: textTheme.displayLarge,
         ),
         const SizedBox(
@@ -87,7 +90,7 @@ class _DDay extends StatelessWidget {
         Column(
           children: [
             Text(
-              "나의 근무 일수",
+              SUB_TITLE,
               style: textTheme.bodyLarge,
             ),
             Text(
@@ -120,7 +123,7 @@ class _CoupleImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Image.asset(
-        'asset/img/middle_image.png',
+        PathConstants.assetMiddleImagePath,
         height: MediaQuery.of(context).size.height / 2,
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:d_day/constant/constants.dart';
 import 'package:d_day/screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -5,14 +6,14 @@ void main() {
   runApp(MaterialApp(
     home: const HomeScreen(),
     theme: ThemeData(
-      fontFamily: 'sunflower',
+      fontFamily: FontConstants.sunflower,
       textTheme: const TextTheme(
 
         displayLarge: TextStyle(
           color: Colors.white,
           fontSize: 80.0,
           fontWeight: FontWeight.w700,
-          fontFamily: 'parisienne'
+          fontFamily: FontConstants.parisienne
         ),
 
         headlineLarge: TextStyle(
