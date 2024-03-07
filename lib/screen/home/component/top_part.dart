@@ -24,17 +24,17 @@ class TopPart extends StatelessWidget {
         children: [
           Text(
             U_I,
-            style: textTheme.headline1,
+            style: textTheme.headlineLarge,
           ),
           Column(
             children: [
               Text(
                 FIRST_DATE,
-                style: textTheme.bodyText1,
+                style: textTheme.bodyLarge,
               ),
               Text(
                 '${selectedDate.year}.${selectedDate.month}.${selectedDate.day}',
-                style: textTheme.bodyText2,
+                style: textTheme.bodyMedium,
               ),
             ],
           ),
@@ -45,7 +45,7 @@ class TopPart extends StatelessWidget {
                   now.month,
                   now.day,
                 ).difference(selectedDate).inDays + 1}',
-            style: textTheme.headline2,
+            style: textTheme.headlineMedium,
           ),
         ],
       ),

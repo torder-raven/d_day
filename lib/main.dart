@@ -7,13 +7,8 @@ void main() {
     MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: sunFlowerFont,
-        textTheme: TextTheme(
-          headlineLarge: headlineLarge,
-          headlineMedium: headlineMedium,
-          bodyLarge: bodyLarge,
-          bodyMedium: bodyMedium
-        ),
+        fontFamily: SUNFLOWER_FONT,
+        textTheme: getTextTheme()
       ),
       home: HomeScreen(),
     ),
